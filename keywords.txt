@@ -17,7 +17,11 @@ openGripper	KEYWORD2
 closeGripper	KEYWORD2
 gotoPoint	KEYWORD2
 goDirectlyTo	KEYWORD2
+gotoPointCylinder	KEYWORD2
+goDirectlyToCylinder	KEYWORD2
 isReachable	KEYWORD2
 getX	KEYWORD2
 getY	KEYWORD2
 getZ	KEYWORD2
+getR	KEYWORD2
+getTheta	KEYWORD2

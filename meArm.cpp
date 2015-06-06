@@ -61,7 +61,8 @@ void meArm::begin(int pinBase, int pinShoulder, int pinElbow, int pinGripper) {
   _elbow.attach(_pinElbow);
   _gripper.attach(_pinGripper);
 
-  goDirectlyTo(0, 100, 50);
+  //goDirectlyTo(0, 100, 50);
+  goDirectlyToCylinder(0, 100, 50);
   openGripper();
 }
 
@@ -90,6 +91,27 @@ void meArm::gotoPoint(float x, float y, float z) {
   }
   goDirectlyTo(x, y, z);
   delay(50);
+}
+
+//Get x and y from theta and r
+void meArm::polarToCartesian(float theta, float r, float& x, float& y){
+    _r = r;
+    _t = theta;
+    x = r*sin(theta);
+    y = r*cos(theta);
+}
+
+//Same as above but for cylindrical polar coodrinates
+void meArm::gotoPointCylinder(float theta, float r, float z){
+    float x, y;
+    polarToCartesian(theta, r, x, y);
+    gotoPoint(x,y,z);
+}
+
+void meArm::goDirectlyToCylinder(float theta, float r, float z){
+    float x, y;
+    polarToCartesian(theta, r, x, y);
+    goDirectlyTo(x,y,z);
 }
 
 //Check to see if possible
@@ -121,3 +143,10 @@ float meArm::getZ() {
   return _z;
 }
 
+
+float meArm::getR() {
+  return _r;
+}
+float meArm::getTheta() {
+  return _t;
+}
