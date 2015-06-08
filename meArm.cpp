@@ -122,13 +122,13 @@ bool meArm::isReachable(float x, float y, float z) {
 
 //Grab something
 void meArm::openGripper() {
-  _gripper.write(90);
+  _gripper.write(angle2pwm(_svoGripper,pi/2));
   delay(300);
 }
 
 //Let go of something
 void meArm::closeGripper() {
-  _gripper.write(120);
+  _gripper.write(angle2pwm(_svoGripper,0));
   delay(300);
 }
 
