@@ -36,6 +36,11 @@ class meArm {
     void gotoPoint(float x, float y, float z);
     //Set servos to reach a certain point directly without caring how we get there 
     void goDirectlyTo(float x, float y, float z);
+
+    //Same as above but for cylindrical polar coodrinates
+    void gotoPointCylinder(float theta, float r, float z);
+    void goDirectlyToCylinder(float theta, float r, float z);
+
     //Grab something
     void openGripper();
     //Let go of something
@@ -46,8 +51,13 @@ class meArm {
     float getX();
     float getY();
     float getZ();
+
+    float getR();
+    float getTheta();
   private:
+    void polarToCartesian(float theta, float r, float& x, float& y);
     float _x, _y, _z;
+    float _r, _t;
     Servo _base, _shoulder, _elbow, _gripper;
     ServoInfo _svoBase, _svoShoulder, _svoElbow, _svoGripper;
     int _pinBase, _pinShoulder, _pinElbow, _pinGripper;
