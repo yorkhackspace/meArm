@@ -25,11 +25,9 @@ SOFTWARE.
  */
 #include "math.h"
 #include "ik.h"
+#include "config.h"
 
 const float PI=3.14159265359;
-float L1=80; //Shoulder to elbow length
-float L2=80; //Elbow to wrise length
-float L3=68; //Length from wrist to hand PLUS base centre to shoulder
 
 // Get polar coords from cartesian ones
 void cart2polar(float a, float b, float& r, float& theta)
