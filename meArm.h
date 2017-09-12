@@ -32,6 +32,7 @@ class meArm {
       int sweepMinGripper=75, int sweepMaxGripper=115, float angleMinGripper=pi/2, float angleMaxGripper=0);
     //required before running
     void begin(int pinBase, int pinShoulder, int pinElbow, int pinGripper);
+    void end();
     //Travel smoothly from current point to another point
     void gotoPoint(float x, float y, float z);
     //Set servos to reach a certain point directly without caring how we get there 
