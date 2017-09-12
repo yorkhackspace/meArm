@@ -62,3 +62,4 @@ Class methods of meArm object
 * float getX() - current x coordinate
 * float getY() - current y coordinate
 * float getZ() - current z coordinate
+* void end() - Disable all servo motors. If you want to continue using the meArm again later, call begin() again.
