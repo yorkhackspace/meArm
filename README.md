@@ -54,6 +54,7 @@ Clone this repository to your local machine, and place it in your Arduino librar
 Class methods of meArm object
 -----------------------------
 * void begin(int pinBase, int pinShoulder, int pinElbow, int pinGripper) - The four PWM-capable pins used to drive the servos.  Begin must be called in setup() before any other calls to the meArm instance are made.
+* *void uartBegin(int pinBase, int pinShoulder, int pinElbow, int pinGripper) - The four PWM-capable pins used to drive the servos.  Begin must be called in setup() before any other calls to the meArm instance are made.
 * void openGripper() - opens the gripper, letting go of anything it was holding
 * void closeGripper() - closes the gripper, perhaps grabbing and holding something as it does so
 * void gotoPoint(float x, float y, float z) - move in a straight line from the current point to the requested position

@@ -18,14 +18,15 @@
 const float pi=3.14159265359;
 
 struct ServoInfo {
-    int n_min, n_max;   // PWM 'soft' limits - should be just within range
-    float gain;         // PWM per radian
-    float zero;         // Theoretical PWM for zero angle
+    int n_min, n_max;   // PWM 'soft' limits - should be just within range软限位
+    float gain;         // PWM per radian pwm 每弧度
+    float zero;         // Theoretical PWM for zero angle零度的理论值
 };
 
 class meArm {
   public:
     //Full constructor uses calibration data, or can just give pins
+    //构造函数
     meArm(int sweepMinBase=145, int sweepMaxBase=49, float angleMinBase=-pi/4, float angleMaxBase=pi/4,
       int sweepMinShoulder=118, int sweepMaxShoulder=22, float angleMinShoulder=pi/4, float angleMaxShoulder=3*pi/4,
       int sweepMinElbow=144, int sweepMaxElbow=36, float angleMinElbow=pi/4, float angleMaxElbow=-pi/4,
@@ -39,6 +40,7 @@ class meArm {
     void goDirectlyTo(float x, float y, float z);
 
     //Same as above but for cylindrical polar coodrinates
+    //援助坐标系
     void gotoPointCylinder(float theta, float r, float z);
     void goDirectlyToCylinder(float theta, float r, float z);
 
