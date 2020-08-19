@@ -25,7 +25,7 @@ struct ServoInfo {
 
 class meArm {
   public:
-    //Full constructor uses calibration data, or can just give pins
+    //Full constructor uses calibration data, or can just give pins校准数据
     //构造函数
     meArm(int sweepMinBase=145, int sweepMaxBase=49, float angleMinBase=-pi/4, float angleMaxBase=pi/4,
       int sweepMinShoulder=118, int sweepMaxShoulder=22, float angleMinShoulder=pi/4, float angleMaxShoulder=3*pi/4,

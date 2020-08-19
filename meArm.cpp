@@ -16,18 +16,18 @@
 bool setup_servo (ServoInfo& svo, const int n_min, const int n_max,
                   const float a_min, const float a_max)
 {
-    float n_range = n_max - n_min;
-    float a_range = a_max - a_min;
+    float n_range = n_max - n_min;//pwm范围
+    float a_range = a_max - a_min;//角度范围
 
     // Must have a non-zero angle range
     if(a_range == 0) return false;
 
     // Calculate gain and zero
-    svo.gain = n_range / a_range;
-    svo.zero = n_min - svo.gain * a_min;
+    svo.gain = n_range / a_range;//计算增益
+    svo.zero = n_min - svo.gain * a_min;//零角度
 
     // Set limits
-    svo.n_min = n_min;
+    svo.n_min = n_min;//设置范围
     svo.n_max = n_max;
 
     return true;
@@ -35,7 +35,7 @@ bool setup_servo (ServoInfo& svo, const int n_min, const int n_max,
 
 int angle2pwm (const ServoInfo& svo, const float angle)
 {
-    float pwm = 0.5f + svo.zero + svo.gain * angle;
+    float pwm = 0.5f + svo.zero + svo.gain * angle;//
     return int(pwm);
 }
 
@@ -62,7 +62,7 @@ void meArm::begin(int pinBase, int pinShoulder, int pinElbow, int pinGripper) {
   _gripper.attach(_pinGripper);
 
   //goDirectlyTo(0, 100, 50);
-  goDirectlyToCylinder(0, 100, 50);
+  goDirectlyToCylinder(0, 100, 50);//初始角度
   openGripper();
 }
 
