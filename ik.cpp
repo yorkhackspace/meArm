@@ -29,7 +29,7 @@ SOFTWARE.
 
 const float PI=3.14159265359;
 
-// Get polar coords from cartesian ones
+// Get polar coords from cartesian ones 笛卡尔坐标 到极坐标
 void cart2polar(float a, float b, float& r, float& theta)
 {
     // Determine magnitude of cartesian coords
@@ -49,7 +49,7 @@ void cart2polar(float a, float b, float& r, float& theta)
 
     // Calculate angle in 0..PI
     theta = acos(c);
-
+float theta1=atan2(b,a);
     // Convert to full range
     if(s < 0) theta *= -1;
 }
@@ -60,8 +60,8 @@ bool cosangle(float opp, float adj1, float adj2, float& theta)
     // Cosine rule:
     // C^2 = A^2 + B^2 - 2*A*B*cos(angle_AB)
     // cos(angle_AB) = (A^2 + B^2 - C^2)/(2*A*B)
-    // C is opposite
-    // A, B are adjacent
+    // C is opposite C是对边
+    // A, B are adjacent AB是相领边
     float den = 2*adj1*adj2;
 
     if(den==0) return false;
@@ -75,6 +75,8 @@ bool cosangle(float opp, float adj1, float adj2, float& theta)
 }
 
 // Solve angles!
+//x y 是平面上的 
+//坐标系
 bool solve(float x, float y, float z, float& a0, float& a1, float& a2)
 {
     // Solve top-down view

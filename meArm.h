@@ -19,7 +19,7 @@ const float pi=3.14159265359;
 
 struct ServoInfo {
     int n_min, n_max;   // PWM 'soft' limits - should be just within range软限位
-    float gain;         // PWM per radian pwm 每弧度
+    float gain;         // PWM per radian pwm 每弧度的pwm数量
     float zero;         // Theoretical PWM for zero angle零度的理论值
 };
 
